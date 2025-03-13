@@ -19,14 +19,13 @@ def _fill_res_partner_activation_active(env):
         env.cr,
         """
         ALTER TABLE res_partner_activation
-        ADD COLUMN IF NOT EXISTS active BOOL
+        ADD COLUMN IF NOT EXISTS active BOOLEAN DEFAULT true
         """,
     )
     openupgrade.logged_query(
         env.cr,
         """
-        UPDATE res_partner_activation
-        SET active = 't'
+        ALTER TABLE res_partner_activation ALTER COLUMN active DROP DEFAULT
         """,
     )
 
