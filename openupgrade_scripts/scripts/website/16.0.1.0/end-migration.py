@@ -47,6 +47,7 @@ def convert_field_html_string_bootstrap_4to5(env):
         "mail.alias",
         "survey.survey",
         "survey.question",
+        "forum.forum",
     ]
     # We could want to refine a certain field logic to discard a good bunch of records
     field_special_domain = {
